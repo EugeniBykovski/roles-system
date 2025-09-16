@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="bg-[#393E3F] text-white min-h-screen flex flex-col"
+        className="bg-[#2c3030] text-white min-h-screen flex flex-col"
         cz-shortcut-listen="true"
       >
         <I18nProvider>{children}</I18nProvider>

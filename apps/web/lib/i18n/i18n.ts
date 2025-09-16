@@ -7,16 +7,13 @@ export enum Namespaces {
   app = "app",
 }
 
-const LANG_KEY = "appLang";
-
 i18n.use(initReactI18next).init({
   resources: {
     en: {
       [Namespaces.app]: en,
     },
   },
-  lng:
-    (typeof window !== "undefined" && localStorage.getItem(LANG_KEY)) || "en",
+  lng: "en",
   fallbackLng: "en",
   defaultNS: Namespaces.app,
   ns: Object.values(Namespaces),

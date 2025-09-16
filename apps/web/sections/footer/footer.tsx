@@ -1,7 +1,6 @@
 "use client";
 
 import { FC } from "react";
-import { Clock4 } from "lucide-react";
 
 export const Footer: FC = () => {
   return (
@@ -10,9 +9,6 @@ export const Footer: FC = () => {
         <h3 className="text-xs font-bold text-[#fcffa8] tracking-widest">
           Roles System
         </h3>
-        <div>
-          <Clock4 className="w-4 h-4 text-[#fcffa8]" />
-        </div>
       </div>
     </footer>
   );

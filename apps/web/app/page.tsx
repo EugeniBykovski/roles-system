@@ -11,7 +11,7 @@ export default function SystemPage() {
     <div className="flex flex-col flex-1 w-full">
       <Header />
       <main
-        className="flex-1 p-4 w-full flex-col 2xl:flex-row flex items-start justify-between"
+        className="flex-1 p-4 w-full flex items-center justify-between"
         style={{
           backgroundImage: `
             repeating-linear-gradient(
@@ -33,11 +33,7 @@ export default function SystemPage() {
         }}
       >
         <div className="w-full h-full flex flex-col items-center justify-center">
-          <div className="flex flex-col 2xl:flex-row justify-between items-start gap-8 my-12">
-            <div className="2xl:w-[50%] md:w-[100%] sm:w-[100%] 2xl:h-[500px] justify-between flex flex-col">
-              ROLES {t("title")}
-            </div>
-          </div>
+          <div className="my-12">ROLES {t("title")}</div>
         </div>
       </main>
       <Footer />
