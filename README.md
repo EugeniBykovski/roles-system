@@ -1,9 +1,13 @@
 # Project Setup:
 
-### Clone repo:
+### Clone the repository
 
-- by HTTPS: https://github.com/EugeniBykovski/roles-system.git
-- or SSH: git@github.com:EugeniBykovski/roles-system.git
+```sh
+# HTTPS
+git clone https://github.com/EugeniBykovski/roles-system.git
+# or SSH
+git clone git@github.com:EugeniBykovski/roles-system.git
+```
 
 ### 1 terminal:
 
@@ -24,7 +28,7 @@ POSTGRES_PASSWORD=passwordsystem
 ```
 
 ```sh
-npx prisma migrate
+npx prisma migrate dev --name init
 npx prisma generate
 npx prisma db seed
 
