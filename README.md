@@ -8,6 +8,20 @@
 ### 1 terminal:
 
 - cd /roles-system/api
+- create .env file:
+
+```sh
+NODE_ENV=development
+DATABASE_URL=postgresql://postgressystem:passwordsystem@localhost:8010/roles-system-db?schema=public
+
+ALLOWED_ORIGIN=http://localhost:3000
+PORT=8000
+HOST_URL=http://localhost
+
+POSTGRES_USER=postgressystem
+POSTGRES_DB=roles-system-db
+POSTGRES_PASSWORD=passwordsystem
+```
 
 ```sh
 npx prisma migrate
@@ -19,7 +33,19 @@ docker compose up
 
 ### 2 terminal:
 
+- cd /roles-system/web
+- create .env file:
+
+```sh
+NEXT_PUBLIC_SERVER_URL="http://localhost:8000/backend"
+NX_PUBLIC_URL="http://localhost:3000"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
+
+### 3 terminal:
+
 - cd /roles-system
+- create .env file:
 
 ```sh
 npm i
