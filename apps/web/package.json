@@ -6,10 +6,13 @@
     "dev": "next dev --turbopack --port 3000",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "orval": "orval --config ./orval.config.mjs",
+    "orval:watch": "orval --config ./orval.config.mjs --watch"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
+    "axios": "^1.12.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "i18next": "^25.5.2",

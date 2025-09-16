@@ -1,12 +1,8 @@
 "use client";
 
-import { Namespaces } from "@/lib/i18n";
-import { Footer, Header } from "@/sections";
-import { useTranslation } from "react-i18next";
+import { Footer, Header, UsersTableSection } from "@/sections";
 
 export default function SystemPage() {
-  const { t } = useTranslation(Namespaces.app);
-
   return (
     <div className="flex flex-col flex-1 w-full">
       <Header />
@@ -33,7 +29,7 @@ export default function SystemPage() {
         }}
       >
         <div className="w-full h-full flex flex-col items-center justify-center">
-          <div className="my-12">ROLES {t("title")}</div>
+          <UsersTableSection />
         </div>
       </main>
       <Footer />
