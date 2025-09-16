@@ -1,3 +1,35 @@
+# Project Setup:
+
+### Clone repo:
+
+- by HTTPS: https://github.com/EugeniBykovski/roles-system.git
+- or SSH: git@github.com:EugeniBykovski/roles-system.git
+
+### 1 terminal:
+
+- cd /roles-system/api
+
+```sh
+- npx prisma migrate
+- npx prisma generate
+- npx prisma db seed
+
+- docker compose up
+```
+
+### 2 terminal:
+
+- cd /roles-system
+
+```sh
+- npm i
+- npm run dev
+```
+
+### Swagger API: http://localhost:8000/api/docs
+
+### App: localhost:3000
+
 # Turborepo starter
 
 This Turborepo starter is maintained by the Turborepo core team.
