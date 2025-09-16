@@ -10,11 +10,11 @@
 - cd /roles-system/api
 
 ```sh
-- npx prisma migrate
-- npx prisma generate
-- npx prisma db seed
+npx prisma migrate
+npx prisma generate
+npx prisma db seed
 
-- docker compose up
+docker compose up
 ```
 
 ### 2 terminal:
@@ -22,13 +22,13 @@
 - cd /roles-system
 
 ```sh
-- npm i
-- npm run dev
+npm i
+npm run dev
 ```
 
 ### Swagger API: http://localhost:8000/api/docs
 
-### App: localhost:3000
+### App: http://localhost:3000
 
 # Turborepo starter
 
