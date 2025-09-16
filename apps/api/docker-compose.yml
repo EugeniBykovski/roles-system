@@ -1,0 +1,23 @@
+name: 'roles-system-db'
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: roles-system-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - '8010:5432'
+    networks:
+      - backend
+
+volumes:
+  db:
+
+networks:
+  backend:
+    driver: bridge
