@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import I18nProvider from "@/providers/i18n-provider/i18n-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Roles System",
@@ -23,6 +24,7 @@ export default function RootLayout({
         cz-shortcut-listen="true"
       >
         <I18nProvider>{children}</I18nProvider>
+        <Toaster />
       </body>
     </html>
   );

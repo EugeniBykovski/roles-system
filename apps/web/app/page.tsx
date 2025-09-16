@@ -28,9 +28,7 @@ export default function SystemPage() {
           backgroundSize: "40px 40px",
         }}
       >
-        <div className="w-full h-full flex flex-col items-center justify-center">
-          <UsersTableSection />
-        </div>
+        <UsersTableSection />
       </main>
       <Footer />
     </div>

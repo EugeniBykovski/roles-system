@@ -62,23 +62,43 @@ export class UsersService {
   }
 
   public async updateRoles(userId: string, dto: UpdateUserRolesDto) {
-    await this.rolesService.ensureRolesExist(dto.roleIds).catch((e) => {
-      throw new BadRequestException(e.message);
-    });
+    const nextIds = Array.from(new Set((dto.roleIds ?? []).filter(Boolean)));
 
-    const exists = await this.prisma.user.findUnique({
+    try {
+      await this.rolesService.ensureRolesExist(nextIds);
+    } catch (e: any) {
+      throw new BadRequestException(e?.message ?? 'Invalid role ids');
+    }
+
+    const user = await this.prisma.user.findUnique({
       where: { id: userId },
       select: { id: true },
     });
 
-    if (!exists) throw new NotFoundException('User not found');
+    if (!user) throw new NotFoundException('User not found');
 
     await this.prisma.$transaction(async (tx) => {
-      await tx.userRole.deleteMany({ where: { userId } });
+      const current = await tx.userRole.findMany({
+        where: { userId },
+        select: { roleId: true },
+      });
 
-      if (dto.roleIds.length) {
+      const currentIds = new Set(current.map((r) => r.roleId));
+      const nextSet = new Set(nextIds);
+
+      const toAdd = [...nextSet].filter((id) => !currentIds.has(id));
+      const toRemove = [...currentIds].filter((id) => !nextSet.has(id));
+
+      if (toRemove.length) {
+        await tx.userRole.deleteMany({
+          where: { userId, roleId: { in: toRemove } },
+        });
+      }
+
+      if (toAdd.length) {
         await tx.userRole.createMany({
-          data: dto.roleIds.map((roleId) => ({ userId, roleId })),
+          data: toAdd.map((roleId) => ({ userId, roleId })),
+          skipDuplicates: true,
         });
       }
     });
